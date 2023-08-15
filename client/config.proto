@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+package cml.client.config;
+
+import "common/config.proto";
+import "device/config.proto";
+
+message Config {
+    cml.common.config.Config common_config = 1;
+    string user_uuid = 3;
+    string lan_ip = 4;
+    string wan_ip = 5;
+    repeated cml.device.config.Config device_configs = 6;
+}

@@ -1,0 +1,9 @@
+syntax = "proto3";
+
+package cml.common.config;
+
+message Config {
+    string name = 1;
+    string uuid = 2;
+    string token = 3;
+}
