@@ -14,8 +14,8 @@
 | CML Inner Payload Type | Raw, Client, Device, Status                         |
 | CML Inner Payload      | bytes, see below                                    |
 
-| CML Inner Payloads |                                                                                           |
-| ------------------ | ----------------------------------------------------------------------------------------- |
-| Device             | Generic digital, generic analog, accelerometer, gyroscrope, magnetometer, motor, location |
-| Client             | Config, Power/Battery, IP                                                                 |
-| Common             | Confg, Status                                                                             |
+| CML Inner Payloads |                                                                                                           |
+| ------------------ | --------------------------------------------------------------------------------------------------------- |
+| Raw                | raw bytes or unspecified                                                                                  |
+| Device             | Config, status, generic digital, generic analog, accelerometer, gyroscrope, magnetometer, motor, location |
+| Client             | Config, status                                                                                            |

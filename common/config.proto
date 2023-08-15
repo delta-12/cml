@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-package cml.common.config;
+package cml.common;
 
 message Config {
     string name = 1;

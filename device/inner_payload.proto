@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+package cml.device;
+
+import "common/status.proto";
+import "device/config.proto";
+
+enum Type
+{
+    CONFIG = 0;
+    STATUS = 1;
+    GENERIC_DIGITAL = 2;
+    GENERIC_ANALOG = 3;
+}
+
+message InnerPayload {
+    Type type = 1;
+    cml.device.Config config = 2;
+    cml.common.Status status = 3;
+    bool generic_digital_value = 4;
+    uint32 generic_analog_value = 5;
+}

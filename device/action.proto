@@ -1,11 +1,11 @@
 syntax = "proto3";
 
-package cml.device.action;
+package cml.device;
 
 import "common/config.proto";
 
 message Action {
-    cml.common.config.Config common_config = 1;
+    cml.common.Config common_config = 1;
     string user_uuid = 2;
     string trigger_topic = 3;
     uint32 trigger_state = 4;

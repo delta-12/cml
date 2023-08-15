@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-package cml.common.status;
+package cml.common;
 
 message Status {
     string status = 1;

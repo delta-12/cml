@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package cml.client;
+
+import "client/config.proto";
+import "client/status.proto";
+
+enum Type
+{
+    CONFIG = 0;
+    STATUS = 1;
+}
+
+message InnerPayload {
+    Type type = 1;
+    cml.client.Config config = 2;
+    cml.client.Status status = 3;
+}

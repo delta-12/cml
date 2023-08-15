@@ -20,7 +20,6 @@ enum InnerPayloadType {
     RAW = 0;
     CLIENT = 1;
     DEVICE = 2;
-    STATUS = 3;
 }
 
 message Payload {
