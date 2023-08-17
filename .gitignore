@@ -1,2 +1,5 @@
 # Output / Compiled protos
 out/**
+
+# Python
+env

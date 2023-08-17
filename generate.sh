@@ -1,7 +1,11 @@
 #!/bin/bash
 
 echo "Initializing submodules..."
+git config --global --add safe.directory /usr/local/cml/nanopb
 git submodule init
+python3 -m venv env
+source env/bin/activate
+pip3 install -r requirements.txt
 
 OUT_DIR=./out
 if [ ! -d "$OUT_DIR" ]; then
@@ -9,7 +13,7 @@ if [ ! -d "$OUT_DIR" ]; then
     mkdir -p $OUT_DIR
 fi
 
-echo "Compiling protobufs for python..."
+echo "Generating protobufs for python..."
 PYTHON_OUT_DIR=$OUT_DIR/python
 if [ ! -d "$PYTHON_OUT_DIR" ]; then
     echo "Creating Python output directory"
@@ -17,7 +21,7 @@ if [ ! -d "$PYTHON_OUT_DIR" ]; then
 fi
 protoc --python_out=$PYTHON_OUT_DIR payload.proto
 
-echo "Compiling protobufs for Javascript..."
+echo "Generating protobufs for Javascript..."
 JS_OUT_DIR=$OUT_DIR/js
 if [ ! -d "$JS_OUT_DIR" ]; then
     echo "Creating Javascript output directory"
@@ -25,7 +29,7 @@ if [ ! -d "$JS_OUT_DIR" ]; then
 fi
 protoc --js_out=$JS_OUT_DIR payload.proto
 
-echo "Compiling protobufs for C..."
+echo "Generating protobufs for C..."
 C_OUT_DIR=$OUT_DIR/c
 if [ ! -d "$C_OUT_DIR" ]; then
     echo "Creating C output directory"

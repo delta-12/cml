@@ -1,5 +1,11 @@
 # Common Message Layer (CML)
 
+### Generate code from protobufs
+
+`docker build -t cml:latest .`
+
+`docker run -v $PWD:/usr/local/cml -it cml:latest /bin/sh -c 'cd /usr/local/cml && ./generate.sh'`
+
 ### Message Structure
 
 | Token HI | Token LO | Addr HI | Addr LO | Length HI | Length LO | CRC HI | CRC LO | CML Payload |
