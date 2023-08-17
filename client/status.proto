@@ -6,7 +6,8 @@ import "common/status.proto";
 
 message Status {
     cml.common.Status common_status = 1;
-    string lan_ip = 2;
-    string wan_ip = 3;
-    uint32 battery_percentage = 4;
+    uint64 serial_number = 2;
+    string lan_ip = 3;
+    string wan_ip = 4;
+    uint32 battery_percentage = 5;
 }

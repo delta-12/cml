@@ -1,0 +1,8 @@
+syntax = "proto3";
+
+package cml.common;
+
+message Log {
+    string message = 1;
+    bytes data = 2;
+}

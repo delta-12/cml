@@ -18,8 +18,9 @@ enum Ack {
 
 enum InnerPayloadType {
     RAW = 0;
-    CLIENT = 1;
-    DEVICE = 2;
+    LOG = 1;
+    CLIENT = 2;
+    DEVICE = 3;
 }
 
 message Payload {
