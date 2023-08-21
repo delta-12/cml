@@ -15,8 +15,8 @@
 | ---------------------- | --------------------------------------------------- |
 | Type                   | UNSPECIFIED, INFORM, GET, SET                       |
 | Acknowledge            | OUT, RETRY, IN, NACK                                |
-| Timestamp              | unsigned 32-bit integer, unix epoch in milliseconds |
-| Time-to-live (TTL)     | unsigned 32-bit integer, time in milliseconds       |
+| Timestamp              | unsigned 64-bit integer, unix epoch in milliseconds |
+| Time-to-live (TTL)     | unsigned 64-bit integer, time in milliseconds       |
 | CML Inner Payload Type | Raw, Client, Device, Status                         |
 | CML Inner Payload      | bytes, see below                                    |
 

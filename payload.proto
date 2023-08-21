@@ -26,8 +26,8 @@ enum InnerPayloadType {
 message Payload {
     Type type = 1;
     Ack ack = 2;
-    uint32 timestamp = 3;
-    uint32 ttl = 4;
+    uint64 timestamp = 3;
+    uint64 ttl = 4;
     InnerPayloadType inner_payload_type = 5;
     bytes inner_payload = 6;
 }
