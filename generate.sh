@@ -1,7 +1,7 @@
 #!/bin/bash
 
 echo "Initializing submodules..."
-git config --global --add safe.directory /usr/local/cml/nanopb
+git config --global --add safe.directory $PWD/nanopb
 git submodule init
 python3 -m venv env
 source env/bin/activate
@@ -19,15 +19,24 @@ if [ ! -d "$PYTHON_OUT_DIR" ]; then
     echo "Creating Python output directory"
     mkdir -p $PYTHON_OUT_DIR
 fi
-protoc --python_out=$PYTHON_OUT_DIR payload.proto
+protoc -I $PWD --python_out=$PYTHON_OUT_DIR $PWD/client/*.proto
+protoc -I $PWD --python_out=$PYTHON_OUT_DIR $PWD/common/*.proto
+protoc -I $PWD --python_out=$PYTHON_OUT_DIR $PWD/device/*.proto
+protoc -I $PWD --python_out=$PYTHON_OUT_DIR $PWD/payload.proto
 
 echo "Generating protobufs for Javascript..."
 JS_OUT_DIR=$OUT_DIR/js
 if [ ! -d "$JS_OUT_DIR" ]; then
-    echo "Creating Javascript output directory"
+    echo "Creating Javascript output directories"
     mkdir -p $JS_OUT_DIR
+    mkdir $JS_OUT_DIR/client
+    mkdir $JS_OUT_DIR/common
+    mkdir $JS_OUT_DIR/device
 fi
-protoc --js_out=$JS_OUT_DIR payload.proto
+protoc -I $PWD --js_out=$JS_OUT_DIR/client $PWD/client/*.proto
+protoc -I $PWD --js_out=$JS_OUT_DIR/common $PWD/common/*.proto
+protoc -I $PWD --js_out=$JS_OUT_DIR/device $PWD/device/*.proto
+protoc -I $PWD --js_out=$JS_OUT_DIR $PWD/payload.proto
 
 echo "Generating protobufs for C..."
 C_OUT_DIR=$OUT_DIR/c
@@ -38,4 +47,7 @@ fi
 cd nanopb
 git submodule update --remote
 cd ../
-python3 nanopb/generator/nanopb_generator.py payload.proto -D $C_OUT_DIR
+python3 nanopb/generator/nanopb_generator.py -I $PWD $PWD/client/*.proto -D $C_OUT_DIR
+python3 nanopb/generator/nanopb_generator.py -I $PWD $PWD/common/*.proto -D $C_OUT_DIR
+python3 nanopb/generator/nanopb_generator.py -I $PWD $PWD/device/*.proto -D $C_OUT_DIR
+python3 nanopb/generator/nanopb_generator.py -I $PWD $PWD/payload.proto -D $C_OUT_DIR
