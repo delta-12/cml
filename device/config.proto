@@ -11,5 +11,5 @@ message Config {
     string client_uuid = 3;
     string client_name = 4;
     uint32 number = 5;
-    repeated cml.device.Action actions = 10;
+    repeated cml.device.Action actions = 6;
 }
