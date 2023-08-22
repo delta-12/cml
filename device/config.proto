@@ -5,11 +5,20 @@ package cml.device;
 import "common/config.proto";
 import "device/action.proto";
 
+enum ConfigType
+{
+    GENERIC_DIGITAL_OUTPUT = 0;
+    GENERIC_DIGITAL_INPUT = 1;
+    GENERIC_ANALOG_OUTPUT = 2;
+    GENERIC_ANALOG_INPUT = 3;
+}
+
 message Config {
     cml.common.Config common_config = 1;
     string user_uuid = 2;
     string client_uuid = 3;
     string client_name = 4;
     uint32 number = 5;
-    repeated cml.device.Action actions = 6;
+    ConfigType config_type = 6;
+    repeated cml.device.Action actions = 7;
 }
