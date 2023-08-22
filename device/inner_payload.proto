@@ -9,10 +9,7 @@ enum Type
 {
     CONFIG = 0;
     STATUS = 1;
-    GENERIC_DIGITAL_OUTPUT = 2;
-    GENERIC_DIGITAL_INPUT = 3;
-    GENERIC_ANALOG_OUTPUT = 4;
-    GENERIC_ANALOG_INPUT = 5;
+    STATE = 2;
 }
 
 message InnerPayload {
