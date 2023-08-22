@@ -1,8 +1,6 @@
 #!/bin/bash
 
-echo "Initializing submodules..."
-git config --global --add safe.directory $PWD/nanopb
-git submodule init
+echo "Installing dependencies..."
 python3 -m venv env
 source env/bin/activate
 pip3 install -r requirements.txt
@@ -44,9 +42,6 @@ if [ ! -d "$C_OUT_DIR" ]; then
     echo "Creating C output directory"
     mkdir -p $C_OUT_DIR
 fi
-cd nanopb
-git submodule update --remote
-cd ../
 python3 nanopb/generator/nanopb_generator.py -I $PWD $PWD/client/*.proto -D $C_OUT_DIR
 python3 nanopb/generator/nanopb_generator.py -I $PWD $PWD/common/*.proto -D $C_OUT_DIR
 python3 nanopb/generator/nanopb_generator.py -I $PWD $PWD/device/*.proto -D $C_OUT_DIR
