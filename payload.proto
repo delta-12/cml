@@ -2,6 +2,10 @@ syntax = "proto3";
 
 package cml.payload;
 
+import "client/inner_payload.proto";
+import "common/log.proto";
+import "device/inner_payload.proto";
+
 enum Type {
     UNSPECIFIED = 0;
     INFO = 1;
@@ -29,5 +33,8 @@ message Payload {
     uint64 timestamp = 3;
     uint64 ttl = 4;
     InnerPayloadType inner_payload_type = 5;
-    bytes inner_payload = 6;
+    bytes raw_inner_payload = 6;
+    cml.common.Log log = 7;
+    cml.client.InnerPayload client_inner_payload = 8;
+    cml.device.InnerPayload device_inner_payload = 9;
 }
