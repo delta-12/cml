@@ -31,10 +31,10 @@ if [ ! -d "$JS_OUT_DIR" ]; then
     mkdir $JS_OUT_DIR/common
     mkdir $JS_OUT_DIR/device
 fi
-protoc -I $PWD --js_out=$JS_OUT_DIR/client $PWD/client/*.proto
-protoc -I $PWD --js_out=$JS_OUT_DIR/common $PWD/common/*.proto
-protoc -I $PWD --js_out=$JS_OUT_DIR/device $PWD/device/*.proto
-protoc -I $PWD --js_out=$JS_OUT_DIR $PWD/payload.proto
+protoc -I $PWD --js_out=import_style=commonjs,binary:$JS_OUT_DIR $PWD/client/*.proto
+protoc -I $PWD --js_out=import_style=commonjs,binary:$JS_OUT_DIR $PWD/common/*.proto
+protoc -I $PWD --js_out=import_style=commonjs,binary:$JS_OUT_DIR $PWD/device/*.proto
+protoc -I $PWD --js_out=import_style=commonjs,binary:$JS_OUT_DIR $PWD/payload.proto
 
 echo "Generating protobufs for C..."
 C_OUT_DIR=$OUT_DIR/c
