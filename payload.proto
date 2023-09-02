@@ -2,9 +2,9 @@ syntax = "proto3";
 
 package cml.payload;
 
-import "client/inner_payload.proto";
+import "client/client_inner_payload.proto";
 import "common/log.proto";
-import "device/inner_payload.proto";
+import "device/device_inner_payload.proto";
 
 enum Type {
     UNSPECIFIED = 0;

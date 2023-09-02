@@ -3,7 +3,7 @@ syntax = "proto3";
 package cml.device;
 
 import "common/config.proto";
-import "device/action.proto";
+import "device/device_action.proto";
 
 enum ConfigType
 {
