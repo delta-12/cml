@@ -3,7 +3,7 @@ syntax = "proto3";
 package cml.client;
 
 import "common/config.proto";
-import "device/config.proto";
+import "device/device_config.proto";
 
 message Config {
     cml.common.Config common_config = 1;
