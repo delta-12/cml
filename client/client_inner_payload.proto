@@ -2,8 +2,8 @@ syntax = "proto3";
 
 package cml.client;
 
-import "client/config.proto";
-import "client/status.proto";
+import "client/client_config.proto";
+import "client/client_status.proto";
 
 enum Type
 {
